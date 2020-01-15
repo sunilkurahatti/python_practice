@@ -15,7 +15,7 @@ Enter:
 -'d' to delete a book
 -'q' to quit
 
-your chouces here:
+your choices here:
 """
 
 
@@ -43,10 +43,9 @@ def prompt_add_book():
 
 def list_books():
     books = database.get_all_books()
-
     for book in books:
         print(book)
-        # read='YES' if book[2]=='1' else 'NO'
+        # read ='YES' if book[2]=='1' else 'NO'
         print("{} written by {} read status is {}".format(book[0], book[1], book[2]))
 
 
@@ -59,16 +58,11 @@ def prompt_delete_book():
     name = input("Enter name of the book to delete: ")
     database.delete_book(name)
 
-
 #
-# books_file='books_file.txt'
-# with open(books_file,'r') as file:
-#    lines=[line.strip().split(',') for line in file.readlines()]
-#    print(lines)
-# books=[
-#    {'name':line[0],'author':line[1],'read':line[2]}
-#    for line in lines]
-# print(books)
-
+# books_file = 'books_file.txt'
+#
+# with open(books_file, 'r') as file:
+#     lines = [line.strip().split(',') for line in file.readlines()]
+#     print(lines)
 
 menu()

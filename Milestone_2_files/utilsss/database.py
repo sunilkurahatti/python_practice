@@ -8,16 +8,22 @@ books_file = 'books_file.txt'
 
 def add_book(name, author):
     with open(books_file, 'a') as file:
-        file.write("{},{},{}\n".format(name, author, 0))
+        file.write("{},{},{}\n".format(name, author, '0'))
 
 
 def get_all_books():
     with open(books_file, 'r') as file:
-        lines = [line.strip().split(',') for line in file.readlines()]
-
-    return [
-        {'name': line[0], 'author': line[1], 'read': line[2]}
-        for line in lines]
+        for line in file.readlines():
+            lines = line.strip().split(',')
+            print(lines)
+            for i in lines:
+                print(i)
+            print({'name': lines[0], 'author': lines[1], 'read': lines[2]})
+            print(i)
+            boo = ["{'name':{}, 'author':{}}".format(line[0], line[1]) for line in lines]
+            print(boo)
+    # lines =[{"name:{},author:{},read:{}"}.format(line[0], line[1], line[2])
+    # return "name:{},author:{},read:{}".format(line[0], line[1], line[2])
 
 
 def mark_as_read(name):
