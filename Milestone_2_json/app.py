@@ -45,8 +45,8 @@ def prompt_add_book():
 def list_books():
     books = database.get_all_books()
     for book in books:
-        read = 'YES' if book[2] == '1' else 'NO'
-        print("{} written by {} read status is {}".format(book[0], book[1], read))
+        read = 'YES' if book['read'] else 'NO'
+        print("{} written by {} read status is {}".format(book['name'], book['author'], read))
 
 
 def prompt_read_book():
